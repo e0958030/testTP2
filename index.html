@@ -1,0 +1,74 @@
+<!-- Document HTMl pour le TP2 final par Camilia El Moustarih -->
+
+<!DOCTYPE html>
+<html lang="fr">
+    
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Titre du quiz -->
+    <title>Quiz sur la cuisine internationale</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Ajuster la taille du viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Polices de charactères -->
+    <!-- Police Crimson -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- Police Dancing Script -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Polices d'icônes Google-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+
+    <!-- Importation des feuilles de style CSS -->
+    <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/styles.css"/>    
+    <link rel="stylesheet" href="css/stylesQuiz.css"/>
+
+</head>
+
+<body>
+    <!-- Titre animé du quiz qui sera enlevé lorsque le quiz commence -->
+    <main class="introQuiz">
+        <div class="anim-titre-intro">
+            Quiz sur la cuisine internationale
+        </div> 
+
+        <!-- Entête avec le sujet du quiz qui sera enlevé lorsque le quiz commence -->
+        <header class="intro">
+            Testez vos connaissances sur la cuisine internationale! Avez-vous le savoir nécessaire pour devenir chef?
+        </header>
+    </main>        
+
+    <!-- Sections avec le quiz, les questions et les choix de réponses -->
+    <section class="quiz">
+        <div class="titresQuestions"></div>
+        <div class="choixReponses"></div>        
+    </section>
+
+    <!-- Message de fin du quiz avec le bouton pour recommencer la partie -->
+    <main class="finQuiz">
+        <span class="material-icons btn-rejouer">restart_alt</span>
+        <p>Merci d'avoir joué!</p>
+        <p>Appuyez pour recommencer la partie</p>
+        
+    </main>
+    
+    <!-- Le footer ici est vide, mais le texte sera affiché avec JavaScript, au début avec les instructions pour débuter le quiz et ensuite, les droits d'auteur -->
+    <footer></footer>
+
+    <!-- Chargement des scripts JavaScript -->
+    <script src="js/index.js"></script>
+    <script src="js/questionsQuiz.js"></script>
+</body>
+
+</html>

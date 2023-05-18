@@ -1,0 +1,18 @@
+meilleur score: local storage
+
+ajouter crochet bonne reponse
+ajouter X mauvaise reponse
+
+ajouter imagse
+
+curseur personnalisé
+
+changer request animation frame
+translation de droite a gauche
+clip path
+
+musique de fond quiz mii ou sims 1
+
+
+magicpattern.design blob generator
+<svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="b" gradientTransform="rotate(-45 .5 .5)"><stop offset="0%" stop-color="#FF3CAC"/><stop offset="50%" stop-color="#784BA0"/><stop offset="100%" stop-color="#2b86c5"/></linearGradient><clipPath id="a"><path fill="currentColor" d="M834.5 674.5Q702 849 509.5 833T207 658.5Q97 500 189 310.5T472.5 168q191.5 47 343 189.5t19 317Z"/></clipPath></defs><g clip-path="url(#a)"><path fill="url(#b)" d="M834.5 674.5Q702 849 509.5 833T207 658.5Q97 500 189 310.5T472.5 168q191.5 47 343 189.5t19 317Z"/></g></svg>

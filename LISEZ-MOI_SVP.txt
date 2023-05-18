@@ -1,0 +1,14 @@
+Bonjour!
+
+Juste un petit rappel pour vous dire qu'il y a un problème avec le footer.
+
+Il disparaît lorsque les questions du quiz s'affichent et réapparaissent lorsque vous 
+sélectionniez quelque chose dans l'inspecteur comme par magie, et vous n'avez pas réussi 
+à trouver l'erreur, car le footer avait une position fixe et un bottom à 0 et les tailles
+étaient les bonnes dans l'onglet "computed".
+
+Merci beaucoup!
+
+Un grand merci pour votre aide cette session, je vous souhaite un très bel été!
+
+Au plaisir 

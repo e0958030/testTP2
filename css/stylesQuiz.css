@@ -1,0 +1,371 @@
+/* Feuille de style du quiz */
+
+/* Palette de couleurs déclarée à la racine du document */
+:root{
+    --bonne-reponse-texte: rgb(0, 119, 0);
+    --bonne-reponse-fond: rgba(134, 255, 134, 0.2);
+    --mauvaise-reponse-texte: rgb(255, 115, 0);
+    --mauvaise-reponse-fond: rgba(255, 102, 102, 0.5);
+}
+
+/* Animation du titre d'introduction */
+@keyframes monter-titre {
+    from {
+		transform: translateY(60vh) scale(0.5);
+	}
+
+	to {
+		transform: translateY(0vh) scale(0.5);
+	}
+}
+
+@keyframes etirer-titre {
+	from {
+		transform: scale(0.5);
+		color: cornflowerblue;
+	}
+
+	25%{
+		color: #31e731;
+	}
+
+	50% {
+		transform: scale(1.1) rotateY(1turn);
+		color: #ff657f;
+	}
+
+	75%{
+		color: #ffc400;
+	}
+
+	to {
+		color: black;
+		transform: scale(1);
+	}
+}
+
+/* Styles du titre principal du quiz */
+.anim-titre-intro{
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    animation: monter-titre 350ms, etirer-titre  1250ms 350ms cubic-bezier(0,.69,0,1);
+    font-size: clamp(4rem, 0.5rem + 0.5vw, 4rem);  
+}
+
+/* Animation des choix de réponse */
+@keyframes animer-reponse-succes {
+    from, 70%, to {
+        transform: rotateY(1turn) scale(1);
+    }
+
+    50% {
+        transform: rotateY(0turn) translateY(-15%);
+    }
+
+   	to {
+        transform: scale(1.5) translateY(0%);
+    }
+}
+
+@keyframes animer-reponse-echec {
+    from {
+        transform: rotateY(1turn) scale(1);
+    }
+
+    50% {
+        transform: rotateY(0turn) translateY(15%);
+    }
+
+    to {
+        transform: scale(0.1) translateY(0%);
+    }
+}
+
+/* Changer les couleurs du texte et du fond si la réponse est bonne */
+div.choix.reponse-succes {
+    animation: animer-reponse-succes 2s forwards;
+    color: var(--bonne-reponse-texte);
+    background-color: var(--bonne-reponse-fond);
+    transition: background-color, color 2s;
+}
+
+/* Changer les couleurs du texte et du fond si la réponse est erronée */
+div.choix.reponse-echec {
+    animation: animer-reponse-echec 2s forwards;    
+    color: var(--mauvaise-reponse-texte);
+    background-color: var(--mauvaise-reponse-fond);
+    transition: background-color, color 2s;
+}
+
+/* Styles des titres des questions du quiz */
+.titresQuestions{
+	display: flex;
+	flex-direction: column;
+	margin-top: 15%;
+	font-weight: bolder;
+	text-decoration: underline;
+}
+
+/* Styles des choix de réponses du quiz */
+section .choixReponses {	
+    font-family: 'Dancing Script', cursive;
+    font-size: 8rem;
+    font-weight: bold;
+    width: 90vw;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+section .choixReponses.desactiver {
+    pointer-events: none;	
+}
+
+div.choix {	
+    font-size: 1.5rem;
+    height: 20vmin;
+	width: 90vmin;
+    position: relative;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: antiquewhite;
+    border: 2px dotted cornflowerblue;  
+	padding: 5%; 
+}
+
+div.choix::before{
+    position:absolute;
+    content:"";
+    left: 0%;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+}
+
+/*mettre ds le mode desktop*/
+
+
+/* Styles pour la fin du quiz avec la section de score */
+main.finQuiz {
+    font-size: 5rem;
+    flex-direction: column;
+    display: none;
+}
+
+/* Animation de la section du score */
+@keyframes animer-score {
+    from{
+        transform: scale(0) rotateY(0);
+		border: 2px dotted cornflowerblue; 
+    }
+
+	25%{
+		border: 2px dotted palevioletred; 
+	}
+
+	50%{
+		border: 2px dotted goldenrod; 
+	}
+
+	75%{
+		border: 2px dotted greenyellow; 
+	}
+
+    to{
+        transform: scale(1) rotateY(1turn);
+		border: 2px dotted cornflowerblue; 
+    }
+}
+
+/* Styles du message qui affiche le score du joueur */
+main.finQuiz .score {
+    display: flex;
+    flex-direction: row;
+    width: 20rem;
+    height: 10rem;
+    background-color: var(--couleur-pale);
+    color: #7c051f;
+	background-color: antiquewhite;	
+    border: 2px dotted cornflowerblue;  
+    transform: scale(0) rotateY(0);
+    animation: animer-score 3s forwards;
+}
+
+/* Styles pour le bouton rejouer */
+main.finQuiz .btn-rejouer {
+    cursor: pointer;
+    font-size: 3rem;
+    margin-top: 2rem;
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+main.finQuiz p {
+    font-size: 1rem;
+    font-weight: bold;
+    font-style: italic;
+    background-color: antiquewhite;
+    animation: animer-texte-rejouer 10s;
+}
+
+/* Animer le texte pour qu'il apparaisse en meme temps que l'icône pour recharger la partie */
+@keyframes animer-texte-rejouer {
+    from{
+        opacity: 0;
+    }
+
+    to{
+        opacity: 1;
+    }
+}
+
+/********* Requêtes média *********/
+
+/* Requêtes médias pour les écrans de taille moyenne (tablettes et plus) */
+@media screen and (min-width: 768px) {
+
+    /* Changer l'image de fond */
+    body{
+        background-image: url(../images/FondTexture_tablette.jpg);
+    }
+
+    main .anim-titre-intro{
+        padding-top: 10%;
+        font-size: 4rem;
+    }
+
+    main .quiz > header{
+        margin-top: 15vh;
+    }
+
+    section .titresQuestions {
+        font-size: 3rem;
+    }
+
+    section .choix {        
+        flex-direction: column;
+        width: 50vmin;
+        border-radius: 0%;
+    }
+}
+
+/* Requêtes médias pour les écrans de grande taille (écrans de bureau) */
+@media screen and (min-width: 992px) {
+
+    /* Changer l'image de fond */
+    body{
+        background-image: url(../images/FondTexture_bureau.jpg);
+    }
+
+    main .anim-titre-intro{
+        padding-top: 10%;
+        font-size: 4rem;
+    }
+
+    main.quiz > header {
+        margin-top: 2%;
+        font-size: 4rem;
+    }
+
+    section .titresQuestions {
+        margin-top: 10%;
+        font-size: 3rem;
+    }
+
+    /* Effet de survol */
+    div.choix:hover, div.choix:active {
+        transform: scale(1.2); 
+        transition: clip-path 400ms;
+        cursor: url(../images/curseurGateau.png) 32 32, pointer;
+    }
+
+    /* Effet de survol sur le bouton pour recommencer la partie */
+    main.finQuiz .btn-rejouer:hover{
+        cursor: pointer;
+        font-size: 70px;
+        transition: font-size 0.5s;
+    }
+
+    div .choix {
+        flex-direction: row;
+        font-size: 2rem;
+        width: 50vmin;
+        height: 20vmin;
+        margin-left: 5vh;
+        margin-right: 5vh;
+        margin-top: 2%;           
+    }
+
+    footer{
+        margin-top: 2%;
+    }
+
+    /* Animations pour afficher chaque question avec une animation différente gérée par le clip-path */
+    @keyframes anim-section-0 {
+        from {
+            clip-path: polygon(-50% 0%, -50% 0%, -50% 100%, -50% 100%);
+        }
+    
+        to {
+            clip-path: polygon(0% 0%, 110% 0%, 100% 100%, 0% 100%);
+        }
+    }
+
+    @keyframes anim-section-1 {
+        from {
+            clip-path: polygon(0% 40%, 0% 40%, 0% 60%, 0% 60%);
+        }
+    
+        to {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+    }
+
+    @keyframes anim-section-2 {
+        from {
+            clip-path: polygon(90% 0%, 100% 0%, 100% 10%, 90% 10%);
+        }
+    
+        to {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+    }
+
+    @keyframes anim-section-3 {
+        from { 
+            clip-path: circle(25%);  
+        }
+        
+        to { 
+            clip-path: circle(100%);
+        }
+    }
+
+    @keyframes anim-section-4 {
+        from{
+            clip-path: polygon(90% 0%, 100% 0%, 100% 10%, 90% 10%);
+        }
+        
+        to {
+            clip-path: polygon(100% 0%, 100% 100%, 0 100%, 0 0);
+        }
+    }
+
+    @keyframes anim-section-5 {
+        from{
+            clip-path: circle(5%)
+        }
+        
+        to {
+            clip-path: circle(100%)
+        }
+    }
+
+}
+
+
+
